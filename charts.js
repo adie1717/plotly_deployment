@@ -1,6 +1,6 @@
 function init() {
   // Grab a reference to the dropdown select element
-  var selector = d3.select("#selDataset");
+  var selector = d3.select("samples.json");
 
   // Use the list of sample names to populate the select options
   d3.json("samples.json").then((data) => {
@@ -55,17 +55,19 @@ function buildMetadata(sample) {
 
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
+  
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
+    let samples = data.samples
     // 3. Create a variable that holds the samples array. 
 var trace = {
-  x: sampleNames,
+  x: sample_values,
   y: otu_ids,
   type: "bar",
   orientation: "h",
 };
     // 4. Create a variable that filters the samples for the object with the desired sample number.
-    var resultsarray= sample.filter(sampleObj => sampleObj.id== sample)
+    var resultsarray= samples.filter(sampleObj => sampleObj.id== sample)
 
     //  5. Create a variable that holds the first sample in the array.
 var result = resultsarray [0]
@@ -88,17 +90,17 @@ var sample_values = result.sample_values
         x: sample_values.slice(0,10).reverse(),
         text: otu_labels.slice(0,10).reverse(),
         type: "bar",
+        orientation: "h",
       }
     ];
 
     // 9. Create the layout for the bar chart. 
     var barLayout = {
      title: "Top 10 Bacteria Cultures Found",
-     xaxis: "sample_values",
-     yaxis: "otu_ids"
+  
     };
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("bar-plot", data, layout);
+    Plotly.newPlot("plot", barData, barLayout);
 
     
   });
