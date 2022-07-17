@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,43 @@
     <title>Top 10 Bacteria Cultures</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
+
 <body>
     <div class="jumbotron">
         <h1>Belly Button Biodiversity Dashboard</h1>
     </div>
-    <div><h5>Test Subject ID No:</h5>
-    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+
+    <div>
+        <h5>Top 10 Bacteria Cultures Found</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+    </div>
+    </div>
+    <div id="plot"></div>
+    <div id="bar"></div>
+    <div class="jumbotron">
     </div>
 
-</div>
+    <div>
+        <h5>Test Subject ID No:</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+    </div>
+
+    </div>
     <div id="plot"></div>
     <div id="bubble"></div>
+    <div id="gauge"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="charts.js"></script>
+    
+    <div>
+        <h5>Top 10 Bacteria Cultures Found</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+    </div>
+    </div>
+    <div id="plot"></div>
+    <div id="gauge"></div>
+    <div class="jumbotron">
+    </div>
 </body>
+
 </html>
